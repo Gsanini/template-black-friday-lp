@@ -1,10 +1,10 @@
 /* ===== EDITE AQUI ===== */
 const CONFIG = {
   CHECKOUT_URL: "https://pay.cakto.com.br/8htnrzm_1261949", // link do checkout (Cakto)
-  PRICE: "29,90", // preço à vista, ex.: "29,90"
-  OLD_PRICE: "59,90", // preço "de", riscado (deixe vazio para ocultar)
-  INSTALLMENTS: 6, // nº máximo de parcelas (0 oculta a linha)
-  INSTALLMENT_VALUE: "5,95", // valor da parcela como aparece no checkout, ex.: "3,99". Vazio = preço ÷ parcelas, sem juros
+  PRICE: "37,90", // preço à vista, ex.: "29,90"
+  OLD_PRICE: "129,90", // preço "de", riscado (deixe vazio para ocultar)
+  INSTALLMENTS: 9, // nº máximo de parcelas (0 oculta a linha)
+  INSTALLMENT_VALUE: "5,15", // valor da parcela como aparece no checkout, ex.: "3,99". Vazio = preço ÷ parcelas, sem juros
   GUARANTEE_DAYS: 7, // 0 oculta a linha de garantia
   USERS: "", // nº REAL de comércios que já usam, ex.: "2.340" (vazio mostra o público do kit)
   // Resultados reais de clientes. Exemplo: { valor: "+38%", texto: "mais agendamentos na semana da Black", quem: "Nome, Loja X, Cidade" }
