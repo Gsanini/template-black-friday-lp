@@ -10,6 +10,7 @@
   --paper: #f5f2ea;
   --ink: #120c04;
   --display: "Anton", Impact, "Arial Narrow", sans-serif;
+  --headline: "Titan One", "Arial Rounded MT Bold", "Arial Black", sans-serif;
   --body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Space Mono", ui-monospace, Menlo, monospace;
   color-scheme: light;
@@ -89,12 +90,38 @@ h2.display {
 .red {
   color: var(--red);
 }
+/* traço de pincel sob o texto: ocupa só a largura do trecho e é "pintado" da esquerda para a direita ao carregar */
 .mark {
-  text-decoration: underline;
-  text-decoration-color: var(--red);
-  text-decoration-thickness: 0.09em;
-  text-underline-offset: 0.02em;
-  text-decoration-skip-ink: none;
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  padding-bottom: 0.34em;
+}
+.mark::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -0.12em;
+  right: -0.5em;
+  bottom: 0;
+  height: 0.44em;
+  background: url(../assets/brush-stroke.svg) center / 100% 100% no-repeat;
+  animation: brush-in 0.75s cubic-bezier(0.3, 0.7, 0.2, 1) 0.2s both;
+}
+@keyframes brush-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mark::after {
+    animation: none;
+  }
 }
 
 /* fita */
@@ -1511,7 +1538,9 @@ footer {
   text-align: center;
 }
 .hero h1 {
-  font-size: clamp(26px, 4.6vw, 44px);
+  font-family: var(--headline);
+  font-size: clamp(19px, 6.1vw, 40px);
+  max-width: 16.5em;
   line-height: 1.08;
 }
 .stage {
@@ -1540,8 +1569,7 @@ footer {
     inset: -40px -240px -40px -160px;
   }
   .hero h1 {
-    max-width: 30ch;
-    font-size: clamp(34px, 3.8vw, 48px);
+    font-size: clamp(34px, 3.8vw, 44px);
     line-height: 1.08;
   }
 }
